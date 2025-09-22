@@ -12,7 +12,7 @@ export default function UserProfile({params}: any) {
     )
 }
 
-// Example React component for a profile page
+
 // Assumes params.id is available and user data is fetched into `user`
 
 // return (
