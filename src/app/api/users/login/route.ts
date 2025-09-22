@@ -2,15 +2,19 @@ import { NextResponse,NextRequest } from "next/server";
 import bcrypt from 'bcrypt'
 import User from "@/models/userModels";
 import jwt from 'jsonwebtoken'
+import {connect} from '@/dbConfig/dbConfig'
+
+connect();
 
 export async function POST(request:NextRequest) {
     try {
+    
         // collect information 
         const {email,password} = await request.json();
         // validation
-        if(email.trim().length===0 ||!password ){
-            return NextResponse.json({error:"Please enter all the creditationals"},{status:500})
-        }
+        // if(email.trim().length===0 ||!password ){
+        //     return NextResponse.json({error:"Please enter all the creditationals"},{status:500})
+        // }
     
         const user = await User.findOne({email});
         if(!user){

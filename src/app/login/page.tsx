@@ -23,8 +23,8 @@ export default function Login(){
             const response = await axios.post("/api/users/login", user); // passing to the backend
             console.log("Login  success", response.data);
             toast.success("Login successful successfully!");
-            const profile = await axios.post('/api/users/profile',user); // now profile as the data while user logs in 
-            console.log("Data pussed to profile",profile)
+            // const profile = await axios.post('/api/users/profile',user); // now profile as the data while user logs in 
+            // console.log("Data pussed to profile",profile)
             router.push('/profile');
         } catch (error: any) {
             console.log("Login failed", error);
