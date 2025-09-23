@@ -28,7 +28,7 @@ export default function Signup(){
         } catch (error: any) {
             console.log("Signup failed", error);
             
-            // Better error handling
+            
             const errorMessage = error.response?.data?.error || error.message || "Signup failed";
             toast.error(errorMessage);
         } finally {
