@@ -122,13 +122,3 @@ Current limitation:
 - Role-based access control
 
 
-
-[1](https://next-auth.js.org/getting-started/example)
-[2](https://www.reddit.com/r/reactjs/comments/1aicm51/nextjs_next_auth_initial_template/)
-[3](https://nextjs.org/docs/app/guides/authentication)
-[4](https://next-auth.js.org/v3/getting-started/example)
-[5](https://nextjs.org/docs/pages/guides/authentication)
-[6](https://stackblitz.com/edit/github-8esmcp)
-[7](https://fossies.org/linux/next.js/examples/with-magic/README.md)
-[8](https://stackblitz.com/github/mui/toolpad/tree/master/examples/core/auth-nextjs-themed)
-[9](https://docs.readme.com/ent/docs/getting-started-with-custom-authentication)
