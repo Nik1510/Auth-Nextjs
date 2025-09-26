@@ -4,6 +4,7 @@ import axios from "axios"
 import Link from "next/link"
 import React, { useEffect, useMemo, useState } from "react"
 import { useRouter } from "next/navigation"
+import toast,{Toaster} from "react-hot-toast"
 
 function UpdatePassword() {
   const [token, setToken] = useState("")
@@ -51,9 +52,9 @@ function UpdatePassword() {
       setError("")
       
       setVerified(true)
-      // Optionally redirect after a brief delay
+      
       router.push("/login")
-      alert(res.data?.message || "Password updated successfully.")
+      toast.success(res.data?.message || "Password updated successfully.")
     } catch (err: any) {
       const msg = err.response?.data?.message || err.response?.data?.error || "Failed to update password."
       setError(msg)
@@ -64,6 +65,17 @@ function UpdatePassword() {
   }
 
   return (
+    <>
+     <Toaster 
+        position="top-right"
+        toastOptions={{
+          duration: 4000,
+          style: {
+            background: '#363636',
+            color: '#fff',
+          },
+        }}
+      />
     <div className="flex min-h-dvh items-center justify-center px-6 py-12 bg-slate-950">
       <div className="w-full max-w-md rounded-xl border border-white/10 bg-white/5 p-6 text-white">
         <h1 className="text-2xl font-semibold">Set a new password</h1>
@@ -129,6 +141,7 @@ function UpdatePassword() {
         </form>
       </div>
     </div>
+    </>
   )
 }
 

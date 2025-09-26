@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -23,8 +23,18 @@ export default function Signup(){
             setLoading(true);
             const response = await axios.post("/api/users/signup", user);
             console.log("signup success", response.data);
-            toast.success("Account created successfully!");
-            router.push('/login');
+            // toast.success("Account created successfully!");
+            toast.success('Account Created successfully!', { 
+                id: 'Account-created',
+                style: {
+                background: '#059669',
+                color: '#fff',
+                },
+            });
+            setTimeout(()=>{
+                router.push('/login');
+            },2000)
+            
         } catch (error: any) {
             console.log("Signup failed", error);
             
@@ -46,6 +56,16 @@ export default function Signup(){
 
     return (
         <>
+            <Toaster 
+        position="top-right"
+        toastOptions={{
+          duration: 4000,
+          style: {
+            background: '#363636',
+            color: '#fff',
+          },
+        }}
+      />
             <div className="flex min-h-dvh flex-col justify-center px-6 py-12 lg:px-8 bg-transparent">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                     <h2 className="mt-10 text-center text-2xl font-bold tracking-tight text-white">

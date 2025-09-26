@@ -1,6 +1,6 @@
 "use client"
 
-import toast from "react-hot-toast"
+import toast ,{Toaster}from "react-hot-toast"
 import axios from "axios"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
@@ -38,6 +38,17 @@ export default function ForgotPassword() {
   }, [user])
 
   return (
+    <>
+     <Toaster 
+        position="top-right"
+        toastOptions={{
+          duration: 4000,
+          style: {
+            background: '#363636',
+            color: '#fff',
+          },
+        }}
+      />
     <div className="flex min-h-dvh items-center justify-center px-6 py-12 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
       <div className="w-full max-w-md">
         <div className="text-center">
@@ -107,5 +118,6 @@ export default function ForgotPassword() {
         </p>
       </div>
     </div>
+    </>
   )
 }

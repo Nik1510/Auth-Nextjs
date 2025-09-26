@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-import toast from "react-hot-toast";
+import toast ,{Toaster} from "react-hot-toast";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -22,10 +22,16 @@ export default function Login(){
             setLoading(true);
             const response = await axios.post("/api/users/login", user); // passing to the backend
             console.log("Login  success", response.data);
-            toast.success("Login successful successfully!");
-            // const profile = await axios.post('/api/users/profile',user); // now profile as the data while user logs in 
-            // console.log("Data pussed to profile",profile)
-            router.push('/profile');
+            toast.success("Login successful successfully!", { 
+                id: 'Login-successful',
+                style: {
+                background: '#059669',
+                color: '#fff',
+                },
+            });
+            setTimeout(()=>{
+                router.push('/profile');
+            },200)
         } catch (error: any) {
             console.log("Login failed", error);
             
@@ -46,6 +52,16 @@ export default function Login(){
 
     return (
         <>
+         <Toaster 
+        position="top-right"
+        toastOptions={{
+          duration: 4000,
+          style: {
+            background: '#363636',
+            color: '#fff',
+          },
+        }}
+      />
             <div className="flex min-h-dvh flex-col justify-center px-6 py-12 lg:px-8 bg-transparent">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                     <h2 className="mt-10 text-center text-2xl font-bold tracking-tight text-white">
@@ -87,8 +103,10 @@ export default function Login(){
                                 </label>
                                 <Link
                                 href="/forgot-password"
+                                onClick={()=>(toast.success("Redirecting to forgot password"))}
                                 className="text-sm font-medium text-green-400 hover:text-green-300 focus:outline-none focus:underline"
                                 >
+                                    
                                 Forgot password?
                                 </Link>
                             </div>
