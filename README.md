@@ -1,4 +1,3 @@
-Here’s a concise README you can drop into the repo. It covers setup, environment, auth flows, and clearly states that password reset emails are sent via Mailtrap for now (not real inbox delivery yet).
 
 # Authentication Starter (Next.js + Mongoose)
 
